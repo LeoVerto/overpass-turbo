@@ -14,7 +14,7 @@ jobs:
       # - run: yarn test
       - run: yarn build
       - name: Deploy to https://tyrasd.github.io/overpass-turbo/
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/abc-search'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
