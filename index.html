@@ -97,7 +97,7 @@
               data-t="[title]nav.wizard_abc"
             >
               <span class="icon">
-                <span class="fas fa-magic"></span>
+                <span class="fas fa-route"></span>
               </span>
               <span class="t" data-t="nav.wizard_abc">ABC</span>
             </button>
@@ -422,7 +422,7 @@
         <header class="modal-card-head">
           <p class="modal-card-title">
             <span class="icon">
-              <span class="fas fa-magic"></span>
+              <span class="fas fa-route"></span>
             </span>
             <span class="t" data-t="[html]abc.title"></span>
           </p>
@@ -433,57 +433,72 @@
           ></button>
         </header>
         <section class="modal-card-body">
+          <p>
+            Find all places where three
+            <a href="https://wiki.openstreetmap.org/wiki/Map_features"
+              >OSM map features</a
+            >
+            are within a certain distance of each other.
+          </p>
           <div class="field">
-            <div class="control has-icons-left">
+            <label class="label" for="abc-input-a">
+              <span class="t" data-t="abc.placeholder_a"></span>
+            </label>
+            <div class="controlt">
               <input
                 type="search"
                 autofocus="autofocus"
                 placeholder=""
                 value=""
                 id="abc-input-a"
-                class="t input is-rounded"
+                class="t input"
                 data-t="[placeholder]abc.placeholder_a"
                 required
               />
             </div>
           </div>
           <div class="field">
-            <div class="control has-icons-left">
+            <label class="label" for="abc-input-b">
+              <span class="t" data-t="abc.placeholder_b"></span>
+            </label>
+            <div class="control">
               <input
                 type="search"
-                autofocus="autofocus"
                 placeholder=""
                 value=""
                 id="abc-input-b"
-                class="t input is-rounded"
+                class="t input"
                 data-t="[placeholder]abc.placeholder_b"
                 required
               />
             </div>
           </div>
           <div class="field">
-            <div class="control has-icons-left">
+            <label class="label" for="abc-input-c">
+              <span class="t" data-t="abc.placeholder_c"></span>
+            </label>
+            <div class="control">
               <input
                 type="search"
-                autofocus="autofocus"
                 placeholder=""
                 value=""
                 id="abc-input-c"
-                class="t input is-rounded"
+                class="t input"
                 data-t="[placeholder]abc.placeholder_c"
                 required
               />
             </div>
           </div>
           <div class="field">
-            <div class="control has-icons-left">
+            <label class="label" for="abc-distance">
+              <span class="t" data-t="abc.placeholder_distance"></span>
+            </label>
+            <div class="control">
               <input
-                type="search"
-                autofocus="autofocus"
-                placeholder=""
-                value=""
+                type="input"
+                value="100"
                 id="abc-distance"
-                class="t input is-rounded"
+                class="input"
                 data-t="[placeholder]abc.placeholder_distance"
                 required
               />
