@@ -1,6 +1,6 @@
 export default {
   appname: "overpass-turbo",
-  defaultServer: "//overpass-api.de/api/",
+  defaultServer: "https://overpass.kumi.systems/api/",
   suggestedServers: [
     "//overpass-api.de/api/",
     "https://overpass.kumi.systems/api/",
@@ -18,9 +18,9 @@ export default {
     //"http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg",
   ],
   defaultMapView: {
-    lat: 49.632,
-    lon: 31.547,
-    zoom: 7
+    lat: 50.4973,
+    lon: 30.5643,
+    zoom: 11
   },
   maxMapZoom: 20,
   short_url_service: "",
