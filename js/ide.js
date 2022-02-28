@@ -2837,11 +2837,11 @@ var ide = new (function () {
     );
   };
   this.update_abc_query = function (callback) {
-    let features = [];
+    var features = [];
     features[0] = $("#abc-input-a").val();
     features[1] = $("#abc-input-b").val();
     features[2] = $("#abc-input-c").val();
-    let distance = $("#abc-distance").val();
+    var distance = $("#abc-distance").val();
     abc.construct_query(
       features,
       distance,
