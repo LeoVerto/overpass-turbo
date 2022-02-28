@@ -13,76 +13,76 @@ abc.construct_query = function (features, distance, comment, callback) {
   })(function (abcQuery) {
     query_parts.push(
       `
-      [out:json][bbox:{{bbox}}][timeout:800];
+[out:json][bbox:{{bbox}}][timeout:800];
 
-      // get set of as
-      (
-        node[` +
+// get set of as
+(
+  node[` +
         features[0] +
         `]({{bbox}});
-        way[` +
+  way[` +
         features[0] +
         `]({{bbox}});
-        rel[` +
+  rel[` +
         features[0] +
         `]({{bbox}});
-      )->.a;
-      
-      // get set of bs
-      (
-        node[` +
+)->.a;
+
+// get set of bs
+(
+  node[` +
         features[1] +
         `]({{bbox}});
-        way[` +
+  way[` +
         features[1] +
         `]({{bbox}});
-        rel[` +
+  rel[` +
         features[1] +
         `]({{bbox}});
-      )->.b;
-      
-      // get set of cs
-      (
-        node[` +
+)->.b;
+
+// get set of cs
+(
+  node[` +
         features[2] +
         `]({{bbox}});
-        way[` +
+  way[` +
         features[2] +
         `]({{bbox}});
-        rel[` +
+  rel[` +
         features[2] +
         `]({{bbox}});
-      )->.c;
-      
-      // determine set of as near bs
-      (
-        node.a(around.b:` +
+)->.c;
+
+// determine set of as near bs
+(
+  node.a(around.b:` +
         distance +
         `);
-        way.a(around.b:` +
+  way.a(around.b:` +
         distance +
         `);
-        rel.a(around.b:` +
+  rel.a(around.b:` +
         distance +
         `);
-      )->.a_near_b;
-      
-      // determine set of cs near as near bs
-      (
-        node.c(around.a_near_b:` +
+)->.a_near_b;
+
+// determine set of cs near as near bs
+(
+  node.c(around.a_near_b:` +
         distance +
         `);
-        way.c(around.a_near_b:` +
+  way.c(around.a_near_b:` +
         distance +
         `);
-        rel.c(around.a_near_b:` +
+  rel.c(around.a_near_b:` +
         distance +
         `);
-      )->.c_near_a_near_b;
-      
-      // print
-      .c_near_a_near_b;
-      out geom meta;
+)->.c_near_a_near_b;
+
+// print
+.c_near_a_near_b;
+out geom meta;
     `
     );
 
