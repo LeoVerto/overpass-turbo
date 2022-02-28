@@ -80,8 +80,48 @@ abc.construct_query = function (features, distance, comment, callback) {
         `);
 )->.c_near_a_near_b;
 
+// determine set of cs near as near bs
+(
+  node.c(around.a_near_b:` +
+        distance +
+        `);
+  way.c(around.a_near_b:` +
+        distance +
+        `);
+  rel.c(around.a_near_b:` +
+        distance +
+        `);
+)->.c_near_a_near_b;
+
+// determine set of as in range of selected cs
+(
+  node.a(around.c_near_a_near_b:` +
+        distance +
+        `);
+  way.a(around.c_near_a_near_b:` +
+        distance +
+        `);
+  rel.a(around.c_near_a_near_b:` +
+        distance +
+        `);
+)->.a_near_c_near_a_near_b;
+
+// determine set of bs in range of selected cs
+(
+  node.b(around.c_near_a_near_b:` +
+        distance +
+        `);
+  way.b(around.c_near_a_near_b:` +
+        distance +
+        `);
+  rel.b(around.c_near_a_near_b:` +
+        distance +
+        `);
+)->.b_near_c_near_a_near_b;
+
+
 // print
-.c_near_a_near_b;
+(.c_near_a_near_b; .a_near_c_near_a_near_b; .b_near_c_near_a_near_b;);
 out geom meta;
     `
     );
