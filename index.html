@@ -440,16 +440,20 @@
             >
             are within a certain distance of each other.
           </p>
+          <p>
+            The default settings will find places where a bank, a sculpture and
+            a church are within a 100m radius.
+          </p>
           <div class="field">
             <label class="label" for="abc-input-a">
               <span class="t" data-t="abc.placeholder_a"></span>
             </label>
-            <div class="controlt">
+            <div class="control">
               <input
                 type="search"
                 autofocus="autofocus"
                 placeholder=""
-                value=""
+                value="amenity=bank"
                 id="abc-input-a"
                 class="t input"
                 data-t="[placeholder]abc.placeholder_a"
@@ -465,7 +469,7 @@
               <input
                 type="search"
                 placeholder=""
-                value=""
+                value="artwork_type=sculpture"
                 id="abc-input-b"
                 class="t input"
                 data-t="[placeholder]abc.placeholder_b"
@@ -481,7 +485,7 @@
               <input
                 type="search"
                 placeholder=""
-                value=""
+                value="building=church"
                 id="abc-input-c"
                 class="t input"
                 data-t="[placeholder]abc.placeholder_c"
