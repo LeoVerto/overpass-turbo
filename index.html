@@ -91,6 +91,22 @@
           <div class="buttons has-addons">
             <button
               class="t button"
+              accesskey="4"
+              data-ide-handler="click:onAbcClick"
+              title=""
+              data-t="[title]nav.wizard_abc"
+            >
+              <span class="icon">
+                <span class="fas fa-magic"></span>
+              </span>
+              <span class="t" data-t="nav.wizard_abc">ABC</span>
+            </button>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <div class="buttons has-addons">
+            <button
+              class="t button"
               accesskey="5"
               data-ide-handler="click:onSaveClick"
               title=""
@@ -391,6 +407,135 @@
               <div class="level-item">
                 <button class="button" data-ide-handler="click:onHelpClose">
                   <span class="t" data-t="dialog.close">Close</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- A near b near c wizard -->
+    <div class="modal" id="abc-dialog">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">
+            <span class="icon">
+              <span class="fas fa-magic"></span>
+            </span>
+            <span class="t" data-t="[html]abc.title"></span>
+          </p>
+          <button
+            class="delete"
+            aria-label="close"
+            data-ide-handler="click:onAbcClose"
+          ></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                type="search"
+                autofocus="autofocus"
+                placeholder=""
+                value=""
+                id="abc-input-a"
+                class="t input is-rounded"
+                data-t="[placeholder]abc.placeholder_a"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                type="search"
+                autofocus="autofocus"
+                placeholder=""
+                value=""
+                id="abc-input-b"
+                class="t input is-rounded"
+                data-t="[placeholder]abc.placeholder_b"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                type="search"
+                autofocus="autofocus"
+                placeholder=""
+                value=""
+                id="abc-input-c"
+                class="t input is-rounded"
+                data-t="[placeholder]abc.placeholder_c"
+                required
+              />
+            </div>
+          </div>
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                type="search"
+                autofocus="autofocus"
+                placeholder=""
+                value=""
+                id="abc-distance"
+                class="t input is-rounded"
+                data-t="[placeholder]abc.placeholder_distance"
+                required
+              />
+            </div>
+          </div>
+          <div class="loading">
+            <progress class="progress is-small is-dark" max="100"></progress>
+          </div>
+          <div
+            id="abc-dialog-parse-error"
+            style="display: none"
+            class="notification is-danger is-light"
+          >
+            <span class="t warning severe" data-t="abc.parse_error"></span
+            ><br />
+            <small>
+              <span class="t" data-t="[html]abc.parse_error_expl"></span>
+            </small>
+          </div>
+          <div
+            id="abc-dialog-typo"
+            style="display: none"
+            class="notification is-danger is-light"
+          >
+            <span class="t warning" data-t="abc.typo"></span>&nbsp;
+            <a href="" id="abc-dialog-typo-correction"></a>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <div class="level">
+            <div class="level-right">
+              <div class="level-item">
+                <button
+                  class="button is-success"
+                  data-ide-handler="click:onAbcRun"
+                >
+                  <span class="icon">
+                    <span class="fas fa-play"></span>
+                  </span>
+                  <span class="t" data-t="dialog.wizard_run"></span>
+                </button>
+                <button
+                  class="button is-success"
+                  data-ide-handler="click:onAbcBuild"
+                >
+                  <span class="icon">
+                    <span class="fas fa-hammer"></span>
+                  </span>
+                  <span class="t" data-t="dialog.wizard_build"></span>
+                </button>
+                <button class="button" data-ide-handler="click:onAbcClose">
+                  <span class="t" data-t="dialog.cancel">Cancel</span>
                 </button>
               </div>
             </div>

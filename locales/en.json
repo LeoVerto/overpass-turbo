@@ -12,6 +12,7 @@
   "nav.load_tt": "load saved query or example",
   "nav.wizard": "Wizard",
   "nav.wizard_tt": "a query builder",
+  "nav.wizard_abc": "A near B near C",
   "nav.settings": "Settings",
   "nav.settings_tt": "various settings",
   "nav.help": "Help",
@@ -209,6 +210,12 @@
   "ffs.parse_error": "Sorry, this search cannot be understood.",
   "ffs.parse_error_expl": "Note that you must use quotation marks with strings containing spaces or special characters and that multiple search filters must be separated by appropriate boolean operators (<i>and</i> or <i>or</i>). Read the <a href=\"https://wiki.openstreetmap.org/wiki/Overpass_turbo/Wizard\" target=\"_blank\">documentation</a> for more information.",
   "ffs.typo": "Did you mean:",
+
+  "abc.title": "A near B near C Query Wizard",
+  "abc.placeholder_a": "feature a",
+  "abc.placeholder_b": "feature b",
+  "abc.placeholder_c": "feature c",
+  "abc.placeholder_distance": "distance between features in m",
 
   "dialog.dismiss": "dismiss",
   "dialog.cancel": "cancel",

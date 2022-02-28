@@ -20,6 +20,7 @@ import configs from "./configs";
 import Query from "./query";
 import Nominatim from "./nominatim";
 import ffs from "./ffs";
+import abc from "./abc";
 import i18n from "./i18n";
 import settings from "./settings";
 import overpass from "./overpass";
@@ -2494,6 +2495,50 @@ var ide = new (function () {
       }.bind(this)
     );
   };
+  this.onAbcClick = function () {
+    $("#abc-dialog #abc-dialog-parse-error").hide();
+    $("#abc-dialog #abc-dialog-typo").hide();
+    $("#abc-dialog .loading").hide();
+    $("#abc-dialog input[type=search]")
+      .removeClass("is-danger")
+      .unbind("keypress")
+      .bind("keypress", function (e) {
+        if (e.which == 13 || e.which == 10) {
+          ide.onAbcRun(true);
+          e.preventDefault();
+        }
+      });
+    $("#abc-dialog").addClass("is-active");
+  };
+  this.onAbcClose = function () {
+    $("#abc-dialog").removeClass("is-active");
+  };
+  this.onAbcBuild = function () {
+    ide.onAbcRun(false);
+  };
+  this.onAbcRun = function (autorun) {
+    // Show loading spinner and hide all errors
+    $("#abc-dialog input[type=search]").removeClass("is-danger");
+    $("#abc-dialog #abc-dialog-parse-error").hide();
+    $("#abc-dialog #abc-dialog-typo").hide();
+    $("#abc-dialog .loading").show();
+
+    // Build query and run it immediately if autorun is set
+    ide.update_abc_query(
+      function (err, abc_result) {
+        $("#abc-dialog .loading").hide();
+        if (!err) {
+          $("#abc-dialog").removeClass("is-active");
+          if (autorun !== false) ide.onRunClick();
+        } else {
+          // show parse error message
+          $("#abc-dialog #abc-dialog-typo").hide();
+          $("#abc-dialog #abc-dialog-parse-error").show();
+          $("#abc-dialog input[type=search]").addClass("is-danger");
+        }
+      }.bind(this)
+    );
+  };
   this.onSettingsClick = function () {
     $("#settings-dialog input[name=ui_language]")[0].value =
       settings.ui_language;
@@ -2715,7 +2760,7 @@ var ide = new (function () {
         !event.altKey)
     ) {
       // Ctrl+Shift+F
-      ide.onFfsClick();
+      ide.onAbcClick();
       event.preventDefault();
     }
 
@@ -2784,6 +2829,25 @@ var ide = new (function () {
               }
             }.bind(this)
           );
+        } else {
+          ide.setQuery(query);
+          callback(null);
+        }
+      }.bind(this)
+    );
+  };
+  this.update_abc_query = function (callback) {
+    let features = [];
+    features[0] = $("#abc-input-a").val();
+    features[1] = $("#abc-input-b").val();
+    features[2] = $("#abc-input-c").val();
+    let distance = $("#abc-distance").val();
+    abc.construct_query(
+      features,
+      distance,
+      undefined,
+      function (err, query) {
+        if (err) {
         } else {
           ide.setQuery(query);
           callback(null);
